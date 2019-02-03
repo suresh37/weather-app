@@ -4,7 +4,7 @@ const yargs = require('yargs')
 var geocode = require('./geocode/geocode')
 var weather = require('./weather/weather')
 var argv = yargs
-      .options({
+      /* .options({
             address: {
                   describe: 'provide the address',
                   demand: true,
@@ -13,10 +13,13 @@ var argv = yargs
             }
       })
       .help()
-      .alias('help', 'h')
+      .alias('help', 'h') */
       .argv
-
 var address = argv.address
+if(address === undefined)
+{
+      address = 'Alwarpet,Chennai'
+}
 var encodedAddress = encodeURI(address)
 var geocodeUrl
       = `http://www.mapquestapi.com/geocoding/v1/address?key=AlYsC3rvvFXmFPE6sLIo7zeACkwyFAEb&location=${encodedAddress}`
